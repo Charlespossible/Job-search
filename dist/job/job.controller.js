@@ -19,6 +19,8 @@ let JobController = class JobController {
     constructor(jobService) {
         this.jobService = jobService;
     }
+    getIndex() {
+    }
     getAllJobs() {
         return this.jobService.getAllJobs();
     }
@@ -30,13 +32,20 @@ let JobController = class JobController {
 exports.JobController = JobController;
 __decorate([
     (0, common_1.Get)(),
+    (0, common_1.Render)('index'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "getIndex", null);
+__decorate([
+    (0, common_1.Get)('jobs'),
     (0, common_1.Render)('job-search'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Array)
 ], JobController.prototype, "getAllJobs", null);
 __decorate([
-    (0, common_1.Get)('search'),
+    (0, common_1.Get)('jobs/search'),
     (0, common_1.Render)('job-search-result'),
     __param(0, (0, common_1.Query)('q')),
     __metadata("design:type", Function),
@@ -44,7 +53,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], JobController.prototype, "searchJobs", null);
 exports.JobController = JobController = __decorate([
-    (0, common_1.Controller)('jobs'),
+    (0, common_1.Controller)(),
     __metadata("design:paramtypes", [job_service_1.JobService])
 ], JobController);
 //# sourceMappingURL=job.controller.js.map
