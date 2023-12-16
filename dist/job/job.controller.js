@@ -21,6 +21,18 @@ let JobController = class JobController {
     }
     getIndex() {
     }
+    aboutPage() {
+    }
+    contactPage() {
+    }
+    jobPage() {
+    }
+    getJob() {
+    }
+    getRegister() {
+    }
+    getsign() {
+    }
     getAllJobs() {
         return this.jobService.getAllJobs();
     }
@@ -37,6 +49,48 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], JobController.prototype, "getIndex", null);
+__decorate([
+    (0, common_1.Get)('about'),
+    (0, common_1.Render)('about'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "aboutPage", null);
+__decorate([
+    (0, common_1.Get)('contact'),
+    (0, common_1.Render)('contact'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "contactPage", null);
+__decorate([
+    (0, common_1.Get)('jobdetails'),
+    (0, common_1.Render)('job_details'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "jobPage", null);
+__decorate([
+    (0, common_1.Get)('jobListing'),
+    (0, common_1.Render)('job-listing'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "getJob", null);
+__decorate([
+    (0, common_1.Post)('signUp'),
+    (0, common_1.Render)('register'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "getRegister", null);
+__decorate([
+    (0, common_1.Post)('login'),
+    (0, common_1.Render)('signin'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "getsign", null);
 __decorate([
     (0, common_1.Get)('jobs'),
     (0, common_1.Render)('job-search'),

@@ -1,4 +1,4 @@
-import { Controller, Get, Render, Query } from '@nestjs/common';
+import { Controller, Get, Post , Render, Query } from '@nestjs/common';
 import { JobService } from './job.service';
 import { Job } from './job.model';
 
@@ -9,6 +9,41 @@ export class JobController {
   @Get()
   @Render('index')
   getIndex(): void {
+    // You can add implementation for the index route if needed
+  }
+  @Get('about')
+  @Render('about')
+  aboutPage(): void {
+    // You can add implementation specific to the about page if needed
+  }
+
+  @Get('contact')
+  @Render('contact')
+  contactPage(): void {
+    // You can add implementation for the index route if needed
+  }
+
+  @Get('jobdetails')
+  @Render('job_details')
+  jobPage(): void {
+    
+  }
+
+  @Get('jobListing')
+  @Render('job-listing')
+  getJob(): void {
+    // You can add implementation for the index route if needed
+  }
+  
+  @Post('signUp')
+  @Render('register')
+  getRegister(): void {
+    // You can add implementation for the index route if needed
+  }
+
+  @Post('login')
+  @Render('signin')
+  getsign(): void {
     // You can add implementation for the index route if needed
   }
 
