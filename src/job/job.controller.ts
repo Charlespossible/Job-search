@@ -7,7 +7,7 @@ export class JobController {
   constructor(private readonly jobService: JobService) {}
 
   @Get()
-  @Render('index')
+  @Render('job-search')
   getAllJobs(): Job[] {
     return this.jobService.getAllJobs();
   }

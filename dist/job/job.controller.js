@@ -30,7 +30,7 @@ let JobController = class JobController {
 exports.JobController = JobController;
 __decorate([
     (0, common_1.Get)(),
-    (0, common_1.Render)('index'),
+    (0, common_1.Render)('job-search'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Array)
