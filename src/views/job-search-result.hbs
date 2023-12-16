@@ -1,0 +1,21 @@
+<!-- job-search-result.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Bootstrap CSS and other styles -->
+</head>
+<body>
+  <div class="container">
+    <h1>Search Results for "{{ query }}"</h1>
+    <ul>
+      {{#each jobs}}
+        <li>
+          <h2>{{ title }}</h2>
+          <p><h3>{{ company }} - {{ location }}</h3></p>
+          <p><h3>{{ description }}</h3></p>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</body>
+</html>
