@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 
 
 import { Jobmodule } from './job/job.module';
+import { Authmodule } from './job/auth/auth.module';
 ;
 
 
@@ -10,8 +11,8 @@ import { Jobmodule } from './job/job.module';
 @Module({
   imports: [  ConfigModule.forRoot({
     isGlobal: true,
-  }),Jobmodule],
- 
+  }),Jobmodule,
+    Authmodule],
 })
 
 export class AppModule {}
