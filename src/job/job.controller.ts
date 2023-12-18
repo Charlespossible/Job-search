@@ -8,9 +8,10 @@ export class JobController {
 
   @Get()
   @Render('index')
-  getIndex(): void {
-    // You can add implementation for the index route if needed
+  root() {
+    return { title: 'Telktia Job Board platform ' };
   }
+
   @Get('about')
   @Render('about')
   aboutPage(): void {
@@ -35,13 +36,13 @@ export class JobController {
     // You can add implementation for the index route if needed
   }
   
-  @Post('signUp')
+  @Get('signUp')
   @Render('register')
   getRegister(): void {
     // You can add implementation for the index route if needed
   }
 
-  @Post('login')
+  @Get('login')
   @Render('signin')
   getsign(): void {
     // You can add implementation for the index route if needed

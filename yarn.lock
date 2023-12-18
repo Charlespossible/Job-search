@@ -949,6 +949,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/hbs@^4.0.4":
+  "integrity" "sha512-GH3SIb2tzDBnTByUSOIVcD6AcLufnydBllTuFAIAGMhqPNbz8GL4tLryVdNqhq0NQEb5mVpu2FJOrUeqwJrPtg=="
+  "resolved" "https://registry.npmjs.org/@types/hbs/-/hbs-4.0.4.tgz"
+  "version" "4.0.4"
+  dependencies:
+    "handlebars" "^4.1.0"
+
 "@types/http-errors@*":
   "integrity" "sha512-D0CFMMtydbJAegzOyHjtiKPLlvnm3iTZyZRSZoLq2mRhDdmLfIWOCYPfQJ4cu2erKghU++QvjcUjp/5h7hESpA=="
   "resolved" "https://registry.npmjs.org/@types/http-errors/-/http-errors-2.0.4.tgz"
@@ -2756,7 +2763,7 @@
   "resolved" "https://registry.npmjs.org/graphemer/-/graphemer-1.4.0.tgz"
   "version" "1.4.0"
 
-"handlebars@4.7.7":
+"handlebars@^4.1.0", "handlebars@4.7.7":
   "integrity" "sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA=="
   "resolved" "https://registry.npmjs.org/handlebars/-/handlebars-4.7.7.tgz"
   "version" "4.7.7"

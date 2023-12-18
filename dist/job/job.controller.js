@@ -19,7 +19,8 @@ let JobController = class JobController {
     constructor(jobService) {
         this.jobService = jobService;
     }
-    getIndex() {
+    root() {
+        return { title: 'Telktia Job Board platform ' };
     }
     aboutPage() {
     }
@@ -48,7 +49,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], JobController.prototype, "getIndex", null);
+], JobController.prototype, "root", null);
 __decorate([
     (0, common_1.Get)('about'),
     (0, common_1.Render)('about'),
@@ -78,14 +79,14 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], JobController.prototype, "getJob", null);
 __decorate([
-    (0, common_1.Post)('signUp'),
+    (0, common_1.Get)('signUp'),
     (0, common_1.Render)('register'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], JobController.prototype, "getRegister", null);
 __decorate([
-    (0, common_1.Post)('login'),
+    (0, common_1.Get)('login'),
     (0, common_1.Render)('signin'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),

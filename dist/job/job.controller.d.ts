@@ -3,7 +3,9 @@ import { Job } from './job.model';
 export declare class JobController {
     private readonly jobService;
     constructor(jobService: JobService);
-    getIndex(): void;
+    root(): {
+        title: string;
+    };
     aboutPage(): void;
     contactPage(): void;
     jobPage(): void;
