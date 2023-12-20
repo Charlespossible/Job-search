@@ -1,4 +1,4 @@
-import { Controller, Get, Post , Render, Query } from '@nestjs/common';
+import { Controller, Get, Post , Render, Query, Param } from '@nestjs/common';
 import { JobService } from './job.service';
 import { Job } from './job.model';
 
@@ -10,6 +10,11 @@ export class JobController {
   @Render('index')
   root() {
     return { title: 'Telktia Job Board platform ' };
+  }
+
+  @Get(':id')
+  findOne(@Param() params): string{
+    return  `items at ${params.id}`;
   }
 
   @Get('about')

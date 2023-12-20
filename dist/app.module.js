@@ -11,6 +11,8 @@ const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const job_module_1 = require("./job/job.module");
 const auth_module_1 = require("./job/auth/auth.module");
+const admin_controller_1 = require("./admin/admin.controller");
+const admin_service_1 = require("./admin/admin.service");
 ;
 let AppModule = class AppModule {
 };
@@ -21,6 +23,8 @@ exports.AppModule = AppModule = __decorate([
                 isGlobal: true,
             }), job_module_1.Jobmodule,
             auth_module_1.Authmodule],
+        controllers: [admin_controller_1.AdminController],
+        providers: [admin_service_1.AdminService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

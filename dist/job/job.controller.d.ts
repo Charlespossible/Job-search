@@ -6,6 +6,7 @@ export declare class JobController {
     root(): {
         title: string;
     };
+    findOne(params: any): string;
     aboutPage(): void;
     contactPage(): void;
     jobPage(): void;

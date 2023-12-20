@@ -22,6 +22,9 @@ let JobController = class JobController {
     root() {
         return { title: 'Telktia Job Board platform ' };
     }
+    findOne(params) {
+        return `items at ${params.id}`;
+    }
     aboutPage() {
     }
     contactPage() {
@@ -50,6 +53,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], JobController.prototype, "root", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], JobController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Get)('about'),
     (0, common_1.Render)('about'),

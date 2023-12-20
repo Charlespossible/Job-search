@@ -4,6 +4,8 @@ import { ConfigModule } from '@nestjs/config';
 
 import { Jobmodule } from './job/job.module';
 import { Authmodule } from './job/auth/auth.module';
+import { AdminController } from './admin/admin.controller';
+import { AdminService } from './admin/admin.service';
 ;
 
 
@@ -13,6 +15,8 @@ import { Authmodule } from './job/auth/auth.module';
     isGlobal: true,
   }),Jobmodule,
     Authmodule],
+  controllers: [AdminController],
+  providers: [AdminService],
 })
 
 export class AppModule {}
