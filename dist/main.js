@@ -14,6 +14,7 @@ async function bootstrap() {
     app.setBaseViewsDir((0, path_1.join)(__dirname, '..', 'src/views'));
     app.setViewEngine('hbs');
     hbs.registerPartials((0, path_1.join)(__dirname, '..', 'src/views/partials/header'));
+    hbs.registerPartials((0, path_1.join)(__dirname, '..', 'src/views/partials/footer'));
     await app.listen(3000);
 }
 bootstrap();

@@ -47,14 +47,14 @@ let JobController = class JobController {
 };
 exports.JobController = JobController;
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_1.Get)('/'),
     (0, common_1.Render)('index'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], JobController.prototype, "root", null);
 __decorate([
-    (0, common_1.Get)(':id'),
+    (0, common_1.Get)('path/:id'),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),

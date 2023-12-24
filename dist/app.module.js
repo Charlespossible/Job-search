@@ -10,9 +10,10 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const job_module_1 = require("./job/job.module");
-const auth_module_1 = require("./job/auth/auth.module");
-const admin_controller_1 = require("./admin/admin.controller");
-const admin_service_1 = require("./admin/admin.service");
+const auth_service_1 = require("./auth/auth.service");
+const auth_controller_1 = require("./auth/auth.controller");
+const auth_module_1 = require("./auth/auth.module");
+const users_module_1 = require("./users/users.module");
 ;
 let AppModule = class AppModule {
 };
@@ -22,9 +23,10 @@ exports.AppModule = AppModule = __decorate([
         imports: [config_1.ConfigModule.forRoot({
                 isGlobal: true,
             }), job_module_1.Jobmodule,
-            auth_module_1.Authmodule],
-        controllers: [admin_controller_1.AdminController],
-        providers: [admin_service_1.AdminService],
+            auth_module_1.AuthModule,
+            users_module_1.UsersModule],
+        controllers: [auth_controller_1.AuthController],
+        providers: [auth_service_1.AuthService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
