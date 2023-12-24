@@ -19,7 +19,23 @@ let JobController = class JobController {
     constructor(jobService) {
         this.jobService = jobService;
     }
-    getIndex() {
+    root() {
+        return { title: 'Telktia Job Board platform ' };
+    }
+    findOne(params) {
+        return `items at ${params.id}`;
+    }
+    aboutPage() {
+    }
+    contactPage() {
+    }
+    jobPage() {
+    }
+    getJob() {
+    }
+    getRegister() {
+    }
+    getsign() {
     }
     getAllJobs() {
         return this.jobService.getAllJobs();
@@ -31,12 +47,61 @@ let JobController = class JobController {
 };
 exports.JobController = JobController;
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_1.Get)('/'),
     (0, common_1.Render)('index'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], JobController.prototype, "getIndex", null);
+], JobController.prototype, "root", null);
+__decorate([
+    (0, common_1.Get)('path/:id'),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], JobController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Get)('about'),
+    (0, common_1.Render)('about'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "aboutPage", null);
+__decorate([
+    (0, common_1.Get)('contact'),
+    (0, common_1.Render)('contact'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "contactPage", null);
+__decorate([
+    (0, common_1.Get)('jobdetails'),
+    (0, common_1.Render)('job_details'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "jobPage", null);
+__decorate([
+    (0, common_1.Get)('jobListing'),
+    (0, common_1.Render)('job-listing'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "getJob", null);
+__decorate([
+    (0, common_1.Get)('signUp'),
+    (0, common_1.Render)('register'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "getRegister", null);
+__decorate([
+    (0, common_1.Get)('login'),
+    (0, common_1.Render)('signin'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], JobController.prototype, "getsign", null);
 __decorate([
     (0, common_1.Get)('jobs'),
     (0, common_1.Render)('job-search'),

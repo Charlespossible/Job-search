@@ -17,10 +17,10 @@ let Authcontroller = class Authcontroller {
         this.authservice = authservice;
     }
     signup() {
-        return "Just signed in";
+        return this.authservice.signUp();
     }
     signin() {
-        return "Just signed in";
+        return this.authservice.signin();
     }
 };
 exports.Authcontroller = Authcontroller;

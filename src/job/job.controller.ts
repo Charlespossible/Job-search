@@ -1,4 +1,4 @@
-import { Controller, Get, Render, Query } from '@nestjs/common';
+import { Controller, Get, Post , Render, Query, Param } from '@nestjs/common';
 import { JobService } from './job.service';
 import { Job } from './job.model';
 
@@ -6,10 +6,51 @@ import { Job } from './job.model';
 export class JobController {
   constructor(private readonly jobService: JobService) {}
 
-  @Get()
+  @Get('/')
   @Render('index')
-  getIndex(): void {
-    // You can add implementation for the index route if needed
+  root() {
+    return { title: 'Telktia Job Board platform ' };
+  }
+
+  @Get('path/:id')
+  findOne(@Param() params): string{
+    return  `items at ${params.id}`;
+  }
+
+  @Get('about')
+  @Render('about')
+  aboutPage(): void {
+    
+  }
+
+  @Get('contact')
+  @Render('contact')
+  contactPage(): void {
+  
+  }
+
+  @Get('jobdetails')
+  @Render('job_details')
+  jobPage(): void {
+    
+  }
+
+  @Get('jobListing')
+  @Render('job-listing')
+  getJob(): void {
+
+  }
+  
+  @Get('signUp')
+  @Render('register')
+  getRegister(): void {
+   
+  }
+
+  @Get('login')
+  @Render('signin')
+  getsign(): void {
+  
   }
 
   @Get('jobs')
@@ -19,7 +60,7 @@ export class JobController {
   }
 
   @Get('jobs/search')
-  @Render('job-search-result') // Render the 'job-search-result' template
+  @Render('job-search-result') 
   searchJobs(@Query('q') query: string) {
     const jobs = this.jobService.searchJobs(query);
     return { jobs, query };
