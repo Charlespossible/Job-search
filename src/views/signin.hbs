@@ -61,12 +61,17 @@
 			<div class="section-top-border">
 				<div class="row">
 					<div class="col-lg-8 col-md-8">
-						<h3 class="mb-30">Register</h3>
-						<form action="#">
+						<form action="auth/login" method="post">
 							
 							<div class="mt-10">
-								<input type="email" name="EMAIL" placeholder="Email address"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
+								<input type="text" name="userid" placeholder="id"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Id'" required
+									class="single-input">
+							</div>
+
+							<div class="mt-10">
+								<input type="text" name="username" placeholder="Username"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required
 									class="single-input">
 							</div>
                             <div class="mt-10">
@@ -76,7 +81,7 @@
 							</div>
                           
                            <div class="mt-10">
-                            <a href="#" class="genric-btn primary-border">Login</a>
+                            <button type="submit"  class="genric-btn primary-border">Login</button>
                            </div>
 							
 							

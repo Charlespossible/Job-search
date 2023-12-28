@@ -1,19 +1,98 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UsersService } from '../users/users.service';
-import { User } from '../users/users.service';
+import { Injectable, UnauthorizedException, ForbiddenException} from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
+import { AuthDto } from './dto/auth.dto';
+import * as argon from 'argon2';
+import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
+import { Responses } from 'src/utils/responses'; 
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
+
 
 @Injectable()
 export class AuthService {
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private prisma: PrismaService,
+    private jwt: JwtService,
+    private config: ConfigService,
+  ) {}
 
-  async signIn(username: string, pass: string): Promise<User> {
-    const user = await this.usersService.findOne(username);
-    if (user?.password !== pass) {
-      throw new UnauthorizedException();
+  async signup(dto: AuthDto) {
+    // generate the password hash
+    const hash = await argon.hash(dto.password);
+    // save the new user in the db
+    try {
+      const user = await this.prisma.user.create({
+        data: {
+          email: dto.email,
+          firstName: dto.firstName,
+          lastName: dto.lastName,
+          password : hash,
+        },
+      });
+
+      return this.signToken(user.id, user.email);
+    } catch (error) {
+      if (
+          error instanceof 
+          PrismaClientKnownRequestError
+      ) {
+        if (error.code === 'P2002') {
+          throw new ForbiddenException(
+            Responses.Error_Code_SignIn,
+          );
+        }
+      }
+      throw error;
     }
-    const { password, ...result } = user;
-    // TODO: Generate a JWT and return it here
-    // instead of the user object
-    return result;
+  }
+
+  async signin(dto: AuthDto) {
+    // find the user by email
+    const user =
+      await this.prisma.user.findUnique({
+        where: {
+          email: dto.email,
+        },
+      });
+    // if user does not exist throw exception
+    if (!user)
+      throw new ForbiddenException(
+        Responses.Error_Code_SignIn,
+      );
+
+    // compare password
+    const pwMatches = await argon.verify(
+      user.password,
+      dto.password,
+    );
+    // if password incorrect throw exception
+    if (!pwMatches)
+      throw new ForbiddenException(
+        Responses.Error_Code_SignIn,
+      );
+    return this.signToken(user.id, user.email);
+  }
+
+  async signToken(
+    userId: number,
+    email: string,
+  ): Promise<{ access_token: string }> {
+    const payload = {
+      sub: userId,
+      email,
+    };
+    const secret = this.config.get('JWT_SECRET');
+
+    const token = await this.jwt.signAsync(
+      payload,
+      {
+        expiresIn: '15m',
+        secret: secret,
+      },
+    );
+
+    return {
+      access_token: token,
+    };
   }
 }

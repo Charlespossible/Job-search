@@ -14,6 +14,8 @@ const auth_service_1 = require("./auth/auth.service");
 const auth_controller_1 = require("./auth/auth.controller");
 const auth_module_1 = require("./auth/auth.module");
 const users_module_1 = require("./users/users.module");
+const prisma_service_1 = require("./prisma/prisma.service");
+const prisma_module_1 = require("./prisma/prisma.module");
 ;
 let AppModule = class AppModule {
 };
@@ -24,9 +26,10 @@ exports.AppModule = AppModule = __decorate([
                 isGlobal: true,
             }), job_module_1.Jobmodule,
             auth_module_1.AuthModule,
-            users_module_1.UsersModule],
+            users_module_1.UsersModule,
+            prisma_module_1.PrismaModule],
         controllers: [auth_controller_1.AuthController],
-        providers: [auth_service_1.AuthService],
+        providers: [auth_service_1.AuthService, prisma_service_1.PrismaService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
